@@ -776,7 +776,7 @@
                  "based on the location of the file in the fileset\n"))))
 
 (def ^:private ^:deps sitemap-deps
-  '[[sitemap "0.2.4"]
+  '[[sitemap "0.3.0"]
     [clj-time "0.12.0"]])
 
 (def ^:private +sitemap-defaults+
