@@ -28,7 +28,7 @@
   push {:ensure-branch  "master"
         :ensure-clean   false
         :ensure-version +version+}
-  pom {:project 'perun
+  pom {:project 'idle-parens/perun
        :version +version+
        :description "Static site generator build with Clojure and Boot"
        :url         "https://github.com/hashobject/perun"
@@ -36,11 +36,13 @@
        :license     {"name" "Eclipse Public License"
                      "url"  "http://www.eclipse.org/legal/epl-v10.html"}})
 
+(set-env! :repositories [["clojars" {:url "https://clojars.org/repo/"}]])
 
 (deftask release-snapshot
   "Release snapshot"
   []
-  (comp (build-jar) (push-snapshot)))
+  (comp (build-jar)
+        (push :repo "clojars" :ensure-snapshot)))
 
 (deftask build
   "Build process"
