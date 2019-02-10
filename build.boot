@@ -42,7 +42,9 @@
   "Release snapshot"
   []
   (comp (build-jar)
-        (push :repo "clojars" :ensure-snapshot)))
+        (push :repo "clojars"
+              :ensure-snapshot true
+              :ensure-branch "idle-parens")))
 
 (deftask build
   "Build process"
